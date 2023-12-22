@@ -81,6 +81,7 @@
                 </ul>
               </div>
 
+              <br>
               <div class="container text-center">
                 <div class="row">
                   <div class="col">
@@ -113,8 +114,10 @@
             <div class="container text-center">
                 <div class="row">
                   <div class="col">
+                    <a href="/ManageComplaint/add">
                     <button type="button" class="btn btn-danger">DETAILS
                     </button>
+                    </a>
                 </div>
 
                   <div class="col">
