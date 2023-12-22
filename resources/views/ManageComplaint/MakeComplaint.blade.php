@@ -92,7 +92,7 @@
 
                   <div class="col">
                     <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Video
-                        <i class ="fa fa-play"></i>
+                        <i class ="fa fa-video"></i>
                     </button>
                 </form>
                   </div>
