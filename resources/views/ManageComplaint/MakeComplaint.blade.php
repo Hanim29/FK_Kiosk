@@ -82,15 +82,27 @@
                 </ul>
               </div>
 
-              <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Photo
-                <i class ="fa fa-camera"></i>
-            </button>
-            </form>
+              <div class="container text-center">
+                <div class="row">
+                  <div class="col">
+                    <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Photo
+                        <i class ="fa fa-camera"></i>
+                    </button>
+                    </form>
+                </div>
 
-            <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Video
-                <i class ="fa fa-play"></i>
-            </button>
-        </form>
+                  <div class="col">
+                    <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Video
+                        <i class ="fa fa-play"></i>
+                    </button>
+                </form>
+                  </div>
+                </div>
+              </div>
+
+
+
+
 
         </div>
           <div class="col">
