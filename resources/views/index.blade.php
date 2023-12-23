@@ -63,7 +63,7 @@
             <a class="nav-link" href="#">COMPLAINT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ACCOUNT</a>
+            <a class="nav-link" href="{{ route('login') }}">ACCOUNT</a>
           </li>
         </ul>
       </div>
@@ -86,7 +86,7 @@
                     <a href="#" class="list-group-item list-group-item-action">KIOSK PAYMENT</a>
                     <a href="#" class="list-group-item list-group-item-action">SALES REPORT</a>
                     <a href="#" class="list-group-item list-group-item-action">COMPLAINT</a>
-                    <a href="#" class="list-group-item list-group-item-action">ACCOUNT</a>
+                    <a href="{{ route('login') }}" class="list-group-item list-group-item-action">ACCOUNT</a>
                 </div>
             </div>
         </div>

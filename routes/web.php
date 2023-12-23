@@ -15,8 +15,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ManageUserController;
 
 Route::get('/', [IndexController::class, 'index']);
+
+Route::get('/register/student', [ManageUserController::class, 'studentRegister'])->name('register.student');
+Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])->name('register.vendor');
+Route::get('/register/staff', [ManageUserController::class, 'staffRegister'])->name('register.staff');
+
+Route::get('/preview/student', function () {
+    return view('ManageUserAccount/KioskParticipant/ParticipantTypeInterface');
+});
+
 Route::get('/complaint',function(){
     return view('/ManageComplaint/MakeComplaint');
 
@@ -36,3 +46,13 @@ Route::get('/complaint',function(){
     Route::get('/MakeComplaint/create',[ComplaintController::class,'create']); //submit complaint
 });
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
