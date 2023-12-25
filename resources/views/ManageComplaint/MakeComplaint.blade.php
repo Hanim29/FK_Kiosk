@@ -43,7 +43,7 @@
                 <div class="mb-3">
                   <input type="email" class="form-control" id="email"
                   placeholder="EMAIL"
-                  style="width100%">
+                  style="width100%;">
              </div>
             </form>
 
