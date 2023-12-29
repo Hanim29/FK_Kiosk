@@ -22,6 +22,7 @@ Route::get('/', [IndexController::class, 'index']);
 Route::get('/register/student', [ManageUserController::class, 'studentRegister'])->name('register.student');
 Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])->name('register.vendor');
 Route::get('/register/staff', [ManageUserController::class, 'staffRegister'])->name('register.staff');
+Route::get('/register/staff', [ManageUserController::class, 'participantType'])->name('register.type');
 
 Route::get('/preview/student', function () {
     return view('ManageUserAccount/KioskParticipant/ParticipantTypeInterface');

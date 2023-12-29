@@ -38,6 +38,11 @@
                 <x-input id="ic_number" class="block mt-1 w-full" type="text" name="ic_number" :value="old('ic_number')" />
             </div>
 
+            <!-- <div class="mt-4">
+                <x-label for="ic_number" value="{{ __('Account Type') }}" />
+                <x-input id="account_type" class="block mt-1 w-full" type="text" name="account_type" :value="old('account_type')" />
+            </div> -->
+
             <input type="hidden" name="account_type" value="student">
 
             <div class="mt-4">

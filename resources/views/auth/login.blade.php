@@ -45,7 +45,7 @@
             </div>
 
             <div class="flex items-center justify-center mt-4">
-                <a href="{{ route('register') }}" class="text-sm text-blue-500 bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                <a href="{{ route('register.type') }}" class="text-sm text-blue-500 bg-blue-500 px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     {{ __('Register') }}
                 </a>
             </div>

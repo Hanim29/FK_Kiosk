@@ -22,4 +22,11 @@ class ManageUserController extends Controller
         return view('ManageUserAccount.KioskParticipant.StaffRegistrationInterface');
     }
 
+    public function participantType()
+    {
+        return view('ManageUserAccount.KioskParticipant.ParticipantTypeInterface');
+    }
+
+
+
 }
