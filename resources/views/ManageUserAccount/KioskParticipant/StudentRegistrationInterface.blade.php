@@ -5,6 +5,9 @@
         <div class = "container" align="center" >
             <img src="/assets/logo.png" alt="" width="50%">
         </div>
+        <!-- <div class = "container" align="center" >
+            <i Student Registration ></i>
+        </div> -->
         
         </x-slot>
 
@@ -37,6 +40,11 @@
                 <x-label for="ic_number" value="{{ __('IC Number') }}" />
                 <x-input id="ic_number" class="block mt-1 w-full" type="text" name="ic_number" :value="old('ic_number')" />
             </div>
+
+            <!-- <div class="mt-4">
+                <x-label for="ic_number" value="{{ __('Account Type') }}" />
+                <x-input id="account_type" class="block mt-1 w-full" type="text" name="account_type" :value="old('account_type')" />
+            </div> -->
 
             <input type="hidden" name="account_type" value="student">
 

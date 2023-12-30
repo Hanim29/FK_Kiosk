@@ -15,13 +15,14 @@
  }
  
  .red-box-container {
+    padding-top: 10px;
     display: flex;                 /* Enable flexbox layout */
     flex-direction: column;        /* Arrange elements vertically */
     justify-content: center;       /* Center elements horizontally */
     align-items: center;          /* Center elements vertically */
     height: 500px;                 /* Fill the entire viewport height */
     width: 500px;                  /* Fill the entire viewport width */
-    background-color: red;  /* Set the background color to red */
+    background-color: #dc3545;  /* Set the background color to red */
     border-radius: 10px;    /* Optional: Add rounded corners */
     margin-left: auto;
     margin-right: auto;
@@ -40,13 +41,18 @@
     padding: 50px; 
     grid-template-columns: 1fr 1fr; /* Create two equal-width columns */
 }
+.jarak{
+    padding: 10px;
+}
 </style>
 
 <body>
     @extends('index')
     @section('content')
+<div class="jarak">
 
-    <div class="red-box-container">
+</div>
+    <div class="red-box-container" >
         <h2 class="heading">Register as</h2>
 
         <div class="registration-options">

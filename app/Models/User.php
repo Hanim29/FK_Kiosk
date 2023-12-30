@@ -29,7 +29,7 @@ class User extends Authenticatable
         'matrix_id',
         'phone_num',
         'ic_number',
-        'accout_type',
+        'account_type',
         'password',
     ];
 
@@ -59,7 +59,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $appends = [
-        'profile_photo_url',
-    ];
+    // protected $appends = [
+    //     'profile_photo_url',
+    // ];
 }
