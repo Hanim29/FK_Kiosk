@@ -9,7 +9,7 @@
 
   <style>
     .navbar {
-      background-color: #dc3545; /* Red navigation bar background */
+      background-color: #dc5c85; /* Red navigation bar background */
     }
 
     .nav-item{
