@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\paymentController;
 
 Route::get('/', [IndexController::class, 'index']);
 
@@ -56,4 +57,28 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+// route for manage payment
+Route::middleware('auth')->group(function () {
+    // show the payment interface
+    Route::get('/payments', [PaymentController::class, 'index'])->name('payments.index');
+
+    // show the participant payment form
+    Route::get('/payments/create', [PaymentController::class, 'indexPayment'])->name('payments.create');
+
+    // add payment to the database
+    Route::post('/payments/perform', [PaymentController::class, 'AddPayment'])->name('payments.perform');
+
+    // show the receipt after payment
+    Route::get('/payments/view/{paymentID}', [PaymentController::class, 'ViewPayment'])->name('payments.show');
+
+    // show update payment form
+    Route::get('/payments/update/{appID}', [PaymentController::class, 'indexUpdate'])->name('payments.update.show');
+
+    // update the payment record on the databse
+    Route::post('/payments/update/{paymentID}', [PaymentController::class, 'UpdatePayment'])->name('payments.update.perform');
+    
+    Route::delete('/payments/{paymentID}', [PaymentController::class, 'DeletePayment'])->name('payments.delete');
+
 });
