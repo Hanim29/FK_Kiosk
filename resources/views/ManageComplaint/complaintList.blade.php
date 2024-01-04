@@ -1,19 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complaint List</title>
+@extends('index')
+@section('content')
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  
-</head>
+<!-- Dashboard content -->
 
-<style>
+{{-- <div class="card">
+    <h2>DASHBOARD</h2>
+</div> --}}
 
-</style>
+<!-- Complaints card -->
+<div class="container">
+    <h2 class="mt-3">List of complaint</h2>
 
-<body>
+    <div class="card m-2">
+        <div class="card-body">
+            Complaint Title #1
 
-</body>
-</html>
+
+        </div>
+    </div>
+    <div class="card m-2">
+        <div class="card-body">
+            Complaint Title #2
+        </div>
+    </div>
+    <div class="card m-2">
+    <div class="row">
+        <div class="col">
+            <div class="card-body">
+                Complaint Title #3
+            </div>
+        </div>
+        <div class="col">
+            <a href="#" class="btn"><i class ="fa fa-camera"></i></a>
+        </div>
+    </div>
+    </div>
+
+
+    <a class="btn btn-danger mt-3" href="{{ route('complaint.create') }}">ADD COMPLAINT</a>
+</div>
+
+@endsection

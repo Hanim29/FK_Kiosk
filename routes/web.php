@@ -29,23 +29,14 @@ Route::get('/preview/student', function () {
     return view('ManageUserAccount/KioskParticipant/ParticipantTypeInterface');
 });
 
-Route::get('/complaint',function(){
-    return view('/ManageComplaint/MakeComplaint');
-
-    // Route::get('/MakeComplaint/add',[ComplaintController::class,'add']); //pergi ke page lain dari button detail
-    Route::prefix('MakeComplaint')
-    ->as('MakeComplaint.')
-    ->group(function () {
-        Route::get('/add', [ComplaintController::class, 'add']);
-
-    //     Route::post('/createBicycle', [ManageBicycleController::class, 'create']);
-    //     Route::get('/{id}/delete', [ManageBicycleController::class, 'delete']);
-    //     Route::get('/{id}/edit', [ManageBicycleController::class, 'edit']);
-    //     Route::post('/{id}/update', [ManageBicycleController::class, 'update']);
-    });
-
-
-    Route::get('/MakeComplaint/create',[ComplaintController::class,'create']); //submit complaint
+Route::prefix('/complaint')->name('complaint.')->controller(ComplaintController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::get('/add', 'create')->name('create');
+    Route::get('/store', 'store')->name('store');
+    Route::get('/show/{id}', 'show')->name('show');
+    Route::get('/edit/{id}', 'edit')->name('edit');
+    Route::get('/update/{id}', 'update')->name('update');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
 });
 
 
@@ -78,7 +69,7 @@ Route::middleware('auth')->group(function () {
 
     // update the payment record on the databse
     Route::post('/payments/update/{paymentID}', [PaymentController::class, 'UpdatePayment'])->name('payments.update.perform');
-    
+
     Route::delete('/payments/{paymentID}', [PaymentController::class, 'DeletePayment'])->name('payments.delete');
 
 });

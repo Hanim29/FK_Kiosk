@@ -41,12 +41,12 @@
           </li>
           <li class="nav-item">
             <a class="nav-link{{ request()->routeIs('payments.*') ? ' active' : '' }}" href="{{ route('payments.index') }}">PAYMENTS</a>
-          </li>        
+          </li>
           <li class="nav-item">
             <a class="nav-link{{ request()->routeIs('home') ? ' active' : '' }}" href="#">SALES REPORT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link{{ request()->routeIs('home') ? ' active' : '' }}" href="#">COMPLAINT</a>
+            <a class="nav-link{{ request()->routeIs('home') ? ' active' : '' }}" href="{{ route('complaint.index') }}">COMPLAINT</a>
           </li>
           <li class="nav-item">
             <a class="nav-link{{ request()->routeIs('login') ? ' active' : '' }}" href="{{ route('login') }}">ACCOUNT</a>
@@ -60,5 +60,5 @@
   @yield('content')
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  @stack('js')  
-  @stack('modal')  
+  @stack('js')
+  @stack('modal')
