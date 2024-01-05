@@ -7,14 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
-    use HasFactory;
-    protected $primaryKey = 'appID';    
-
-    protected $fillable = [
-        'appID',
-        "appStatus",
-        // Add other columns here as per your migration
-    ];
-
     protected $table = 'applications';
+    protected $primaryKey = 'appID';
+    protected $fillable = ['vendorSelect', 'dateRentFrom', 'dateRentTo', 'bizName', 'ssmNo', 'bizType', 'appStatus'];
 }

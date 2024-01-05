@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\paymentController;
+use App\Http\Controllers\ApplicationController;
+use App\Models\Application;
 
 Route::get('/', [IndexController::class, 'index']);
 
@@ -46,6 +48,24 @@ Route::get('/complaint',function(){
 
 
     Route::get('/MakeComplaint/create',[ComplaintController::class,'create']); //submit complaint
+});
+
+
+//kiosk application
+Route::resource('applications', 'ApplicationController');
+// show the application interface
+Route::get('/preview', function () {
+    return view('ManageKioskApplication/updateappinterface');
+});
+Route::get('/ManageKioskApplication',[ApplicationController::class, 'index'])->name('applications');
+Route::get('/ManageKioskApplication/create',[ApplicationController::class, 'create'])->name('applications.create');
+Route::post('/ManageKioskApplication/store',[ApplicationController::class, 'store'])->name('applications.store');
+Route::get('/applications/{id}/edit', [ApplicationController::class, 'edit'])->name('applications.edit');
+Route::put('/applications/{id}/update', [ApplicationController::class, 'update'])->name('applications.update');
+Route::delete('/applications/{id}/delete',[ApplicationController::class, 'delete'])->name('applications.delete');
+
+Route::get('/preview/update', function () {
+    return view('ManageKioskApplication/updateappinterface');
 });
 
 
