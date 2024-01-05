@@ -23,10 +23,10 @@
 </head>
 
 <body>
-
 <div class= "logo">
           <img src="/assets/logo.png" alt="" width="10%">
 </div>
+
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
@@ -49,7 +49,7 @@
             <a class="nav-link" href="#">COMPLAINT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">ACCOUNT</a>
+            <a class="nav-link" href="{{ route('profile.show') }}">ACCOUNT</a>
           </li>
         </ul>
       </div>
@@ -60,3 +60,4 @@
   @yield('content')
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity=" X
+

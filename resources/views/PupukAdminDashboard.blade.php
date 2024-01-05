@@ -63,7 +63,7 @@
             <a class="nav-link" href="#">COMPLAINT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">ACCOUNT</a>
+            <a class="nav-link" href="{{ route('profile.show') }}">ACCOUNT</a>
           </li>
         </ul>
       </div>
