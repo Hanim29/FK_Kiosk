@@ -49,14 +49,28 @@ Route::get('/complaint',function(){
 });
 
 
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return view('dashboard');
+//     })->name('dashboard');
+// });
+
+//route for login
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified',
+    'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard');
+    Route::get('/dashboard/admin', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Admin');
+    Route::get('/dashboard/participant', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Participant');
+    Route::get('/dashboard/pupuk', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Pupuk');
+    Route::get('/dashboard/technical', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Technical');
+    Route::get('/dashboard/bursary', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Bursary');
 });
 
 // route for manage payment
@@ -82,3 +96,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/payments/{paymentID}', [PaymentController::class, 'DeletePayment'])->name('payments.delete');
 
 });
+
+
+
+Route::get('/editProfile/participant', [App\Http\Controllers\ManageUserController::class, 'editProfileK'])->name('edit.participant');
+Route::get('/editProfile/pupuk', [App\Http\Controllers\ManageUserController::class, 'editProfileP'])->name('edit.pupuk');
+Route::get('/editProfile/technical', [App\Http\Controllers\ManageUserController::class, 'editProfileT'])->name('edit.technical');
+Route::get('/editProfile/bursary', [App\Http\Controllers\ManageUserController::class, 'editProfileB'])->name('edit.bursary');
+
+

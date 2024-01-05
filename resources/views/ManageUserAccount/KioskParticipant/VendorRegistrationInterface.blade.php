@@ -14,6 +14,7 @@
             @csrf
 
             <input type="hidden" name="account_type" id="account_type" value="vendor">
+            <input type="hidden" name="matrix_id" id="martrix_id" value="-">
 
             <div>
                 <x-label for="name" value="{{ __('Name') }}" />
