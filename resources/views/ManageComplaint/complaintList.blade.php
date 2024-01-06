@@ -9,6 +9,7 @@
 
 <!-- Complaints card -->
 <div class="container">
+
     <h2 class="mt-3">List of complaint</h2>
 
     <a href="{{route('complaint.show', 99) }}" class="text-decoration-none text-reset">
