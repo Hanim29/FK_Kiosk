@@ -32,6 +32,12 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $filename = time() . '_' . $photo->getClientOriginalName();
+            $photo->storeAs('photos', $filename, 'public');
+        }
+
         // Jangan sentuh lagi
         // dd($request->toArray());
         $complaint = new Complaint();
@@ -41,9 +47,10 @@ class ComplaintController extends Controller
         $complaint->maintainance_type = $request->type_maintenance;
         $complaint->description = $request->description;
         $complaint->status = Complaint::STATUS_PENDING;
-        $complaint->image_path = "gambar";
+        $complaint->image_path = $filename;
         $complaint->user_id = 1; // nnti tukar
         $complaint->save();
+
 
         return redirect(route('complaint.index'));
     }
@@ -72,6 +79,13 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->file('photo');
+            $filename = time() . '_' . $photo->getClientOriginalName();
+            $photo->storeAs('photos', $filename, 'public');
+        }
+
         // dd($request->toArray());
         $complaint = Complaint::find($id);
         $complaint->title = $request->title;
@@ -79,7 +93,7 @@ class ComplaintController extends Controller
         $complaint->kiosk_number = $request->kiosk_number;
         $complaint->maintainance_type = $request->type_maintenance;
         $complaint->description = $request->description;
-        $complaint->image_path = "gambar";
+        $complaint->image_path = $filename;
         $complaint->save();
         return redirect(route('complaint.index'));
     }

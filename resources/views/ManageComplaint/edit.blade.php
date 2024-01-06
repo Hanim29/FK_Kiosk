@@ -4,7 +4,7 @@
 
       <div class="container text-center mt-3">
         <h1>Edit Complaint</h1>
-        <form action="{{ route('complaint.update',$complaint->id) }}" method="POST">
+        <form action="{{ route('complaint.update',$complaint->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
           <div class="row">
@@ -51,9 +51,9 @@
               <div class="container text-center">
                 <div class="row">
                   <div class="col">
-                    <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Photo
-                        <i class ="fa fa-camera"></i>
-                    </button>
+                    <div class="mb-3">
+                        <input type="file" name="photo">
+                    </div>
                   </div>
                 </div>
               </div>

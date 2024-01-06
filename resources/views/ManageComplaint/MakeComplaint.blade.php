@@ -22,7 +22,7 @@
 
       <div class="container text-center mt-3">
         <h1>Make Complaint</h1>
-        <form action="{{ route('complaint.store') }}" method="POST">
+        <form action="{{ route('complaint.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
           <div class="row">
@@ -70,9 +70,9 @@
                   <div class="row">
 
                     <div class="col">
-                      <button type="button" class="btn btn-danger" style="width: 100%; padding-top: 1%; margin-bottom:1%" >Add Photo
-                          <i class ="fa fa-camera"></i>
-                      </button>
+                        <div class="mb-3">
+                            <input type="file" name="photo">
+                        </div>
                     </div>
                   </div>
                 </div>

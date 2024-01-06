@@ -63,8 +63,8 @@
             <div class="mb-3">
               <label for="photo_display" class="form-label">Photos:</label>
               <div>
-                <!-- Add logic to display uploaded photos here -->
-                <!-- Example: <img src="path/to/photo.jpg" alt="Complaint Photo"> -->
+                <img src="{{asset('storage/photos/' . $complaint->image_path);}}" alt="">
+             <!-- Example: <img src="path/to/photo.jpg" alt="Complaint Photo"> -->
               </div>
             </div>
 
