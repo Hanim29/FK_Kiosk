@@ -12,13 +12,11 @@ class Complaint extends Model
     protected $fillable = [
         'user_id',
         'admin_id',
-        'name',
-        'phone_number',
-        'date_of_complaint',
+        'title',
         'kiosk_number',
         'maintainance_type',
-        'complaint_description',
-        'image',
-        'complaint_status',
+        'description',
+        'image_path',
+        'status',
     ];
 }

@@ -14,15 +14,13 @@ return new class extends Migration
         Schema::create('complaints', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id");
-            $table->foreignId("admin_id");
-            $table->string("name");
-            $table->string("phone_number");
-            $table->date("date_of_complaint");
+            $table->foreignId("admin_id")->nullable();
+            $table->string("title");
             $table->integer("kiosk_number");
             $table->string("maintainance_type");
-            $table->string("complaint_description");
-            $table->text("image");
-            $table->boolean("complaint_status");
+            $table->string("description");
+            $table->string("image_path");
+            $table->string("status");
             $table->timestamps();
         });
     }
