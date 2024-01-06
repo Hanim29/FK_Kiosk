@@ -24,10 +24,12 @@
 
 <body>
 
+
+
 <div class= "logo">
           <img src="/assets/logo.png" alt="" width="10%">
-</div>
-  <nav class="navbar navbar-expand-lg navbar-dark">
+
+           <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
       </a>
@@ -53,6 +55,8 @@
           </li>
         </ul>
       </div>
+</div>
+
     </div>
   </nav>
 
