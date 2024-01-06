@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('paymentID'); // Primary Key
-            $table->string('appID', 20);
+            //$table->string('appID', 20);
             $table->string('appNum',20);
             $table->string('phoneNum',20);
             $table->string('email',20);
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('payMethod' ,20);
             
             // Foreign key constraints
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+            //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
         });
     }
 

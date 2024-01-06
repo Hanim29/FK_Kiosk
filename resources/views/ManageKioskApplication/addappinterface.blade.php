@@ -33,7 +33,7 @@
                   <div class="row justify-content-center">
                     <div class="col-10">
                       <div class="vendor-option d-flex justify-content-between">
-                        <input type="radio" id="1" name="vendorSelect" value="1">
+                        <input type="radio" id="1" name="vendorSelect"  value="1">
                         <label for="vendor1">Vendor 1</label>
                         <input type="radio" id="2" name="vendorSelect" value="2">
                         <label for="vendor2">Vendor 2</label>

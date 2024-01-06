@@ -25,23 +25,23 @@
             <div class="card-header">{{ __('Update Kiosk Application') }}</div>
     
             <div class="card-body">
-              <form method="POST" action="{{ route('applications.update') }}">
+              <form method="POST" action="{{ route('applications.update', $applications->appID) }}">
                 @csrf
-    
+                @method('PUT')
                 <div class="form-group">
                   <p><b>Select Vendor Placement</b></p>
                   <div class="row justify-content-center">
                     <div class="col-10">
-                      <div class="vendor-option d-flex justify-content-between">
-                        <input type="radio" id="1" name="vendorSelect" value="1">
+                      <div class="vendor-option d-flex justify-content-between" >
+                        <input type="radio" id="1" name="vendorSelect" value="1" {{ $applications->vendorSelect == 1 ? 'checked' : ''}}>
                         <label for="vendor1">Vendor 1</label>
-                        <input type="radio" id="2" name="vendorSelect" value="2">
+                        <input type="radio" id="2" name="vendorSelect" value="2" {{ $applications->vendorSelect == 2 ? 'checked' : ''}}>
                         <label for="vendor2">Vendor 2</label>
                       </div>
                       <div class="vendor-option d-flex justify-content-between">
-                        <input type="radio" id="3" name="vendorSelect" value="3">
+                        <input type="radio" id="3" name="vendorSelect" value="3" {{ $applications->vendorSelect == 3 ? 'checked' : ''}}>
                         <label for="vendor3">Vendor 3</label>
-                        <input type="radio" id="4" name="vendorSelect" value="4">
+                        <input type="radio" id="4" name="vendorSelect" value="4" {{ $applications->vendorSelect == 4 ? 'checked' : ''}}>
                         <label for="vendor4">Vendor 4</label>
                       </div>
                     </div>
@@ -53,7 +53,7 @@
                   <div class="row mb-3">
                     <div class="col-md-6">
                       <label for="dateRentFrom">From:</label>
-                      <input type="date" id="dateRentFrom" name="dateRentFrom" class="form-control">
+                      <input type="date" id="dateRentFrom" name="dateRentFrom" class="form-control" value="{{ $applications->dateRentFrom}}">
                       @error('dateRentFrom')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="col-md-6">
                       <label for="dateRentTo">To:</label>
-                      <input type="date" id="dateRentTo" name="dateRentTo" class="form-control">
+                      <input type="date" id="dateRentTo" name="dateRentTo" class="form-control" value="{{ $applications->dateRentTo}}">
                       @error('dateRentTo')
                         <span class="invalid-feedback" role="alert">
                           <strong>{{ $message }}</strong>
@@ -75,7 +75,7 @@
                 <div class="form-group">
                   <p><b>Business Details</b></p>
                   <label for="name">Name</label>
-                  <input type="text" id="bizName" name="bizName" class="form-control">
+                  <input type="text" id="bizName" name="bizName" class="form-control" value="{{ $applications->bizName}}">
                   @error('bizName')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -83,7 +83,7 @@
                   @enderror
     
                   <label for="ssmNo">SSM Registration Number</label>
-                  <input type="text" id="ssmNo" name="ssmNo" class="form-control">
+                  <input type="text" id="ssmNo" name="ssmNo" class="form-control" value="{{ $applications->ssmNo}}">
                   @error('ssmNo')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -91,11 +91,11 @@
                   @enderror
 
                   <label for="bizType">Business Type</label>
-              <select id="bizType" name="bizType" class="form-control custom-select">
+              <select id="bizType" name="bizType" class="form-control custom-select" value="{{ $applications->bizType}}">
                 <option value="" selected disabled>Choose a business type</option>
-                <option value="food">Food</option>
-                <option value="drinks">Drinks</option>
-                <option value="flowers">Flowers</option>
+                <option value="food" {{ $applications->bizType == 'food' ? 'selected' : '' }}>Food</option>
+                <option value="drinks" {{ $applications->bizType == 'drinks' ? 'selected' : '' }}>Drinks</option>
+                <option value="flowers" {{ $applications->bizType == 'flowers' ? 'selected' : '' }}>Flowers</option>
                 </select>
                 <style>
                 .custom-select {

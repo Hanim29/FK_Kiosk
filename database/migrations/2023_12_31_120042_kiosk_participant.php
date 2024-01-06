@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('kiosk_participants', function (Blueprint $table) {
             $table->string('participant_ID', 20)->primary();
-            $table->string('appID', 20);
+            //$table->string('appID', 20);
             $table->unsignedBigInteger('user_ID');
 
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+            //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
             $table->foreign('user_ID')->references('id')->on('users')->onDelete('cascade');
 
         });

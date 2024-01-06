@@ -60,13 +60,13 @@ Route::get('/preview', function () {
 Route::get('/ManageKioskApplication',[ApplicationController::class, 'index'])->name('applications');
 Route::get('/ManageKioskApplication/create',[ApplicationController::class, 'create'])->name('applications.create');
 Route::post('/ManageKioskApplication/store',[ApplicationController::class, 'store'])->name('applications.store');
-Route::get('/applications/{id}/edit', [ApplicationController::class, 'edit'])->name('applications.edit');
-Route::put('/applications/{id}/update', [ApplicationController::class, 'update'])->name('applications.update');
-Route::delete('/applications/{id}/delete',[ApplicationController::class, 'delete'])->name('applications.delete');
+Route::get('/ManageKioskApplication/{appID}/edit', [ApplicationController::class, 'edit'])->name('applications.edit');
+Route::put('/ManageKioskApplication/{appID}/update', [ApplicationController::class, 'update'])->name('applications.update');
+Route::delete('/applications/{appID}/delete',[ApplicationController::class, 'delete'])->name('applications.delete');
 
-Route::get('/preview/update', function () {
-    return view('ManageKioskApplication/updateappinterface');
-});
+//Route::get('/preview/update', function () {
+  //  return view('ManageKioskApplication/updateappinterface');
+//});
 
 
 // Route::middleware([

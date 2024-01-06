@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->string('salesID', 20)->primary(); //primary key
-            $table->string('appID', 20);
+            //$table->string('appID', 20);
             // continue add your columns here
 
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+        //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
         });
     }
 
