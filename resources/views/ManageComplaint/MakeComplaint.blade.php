@@ -22,7 +22,9 @@
 
       <div class="container text-center mt-3">
         <h1>Make Complaint</h1>
-        <form action="">
+        <form action="{{ route('complaint.store') }}" method="POST">
+            @csrf
+            @method('POST')
           <div class="row">
             <div class="col">
 
@@ -88,18 +90,19 @@
             </div>
             <div class="col">
 
-              <div class="mb-3">
-                <input type="complaint_description" class="form-control" id="complaint_description" placeholder="COMPLAINT DESCRIPTIONS" style="width: 100%; height: 325px;">
-              </div>
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="COMPLAINT DESCRIPTIONS" id="exampleFormControlTextarea1" rows="3" id="complaint_description" style="width: 100%; height: 325px;"></textarea>
+                </div>
 
               <div class="container text-center">
                   <div class="row">
                     <div class="col">
-                      <a href="/ManageComplaint/add"> <button type="button" class="btn btn-danger">DETAILS</button> </a>
+                        {{-- Replace <99> with code later --}}
+                      <a href="{{ route('complaint.show', 99) }}"> <button type="button" class="btn btn-danger">DETAILS</button> </a>
                     </div>
 
                     <div class="col">
-                      <a href=""><button type="button" class="btn btn-danger">SUBMIT</button></a>
+                      <button type="submit" class="btn btn-danger">SUBMIT</button>
                     </div>
                   </div>
               </div>

@@ -1,5 +1,7 @@
 @extends('index')
 @section('content')
 {{-- Buat dalam ni --}}
-<h1>Detail here</h1>
-@endsectiongit 
+
+<h1>Edit page</h1>
+
+@endsection

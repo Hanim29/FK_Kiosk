@@ -11,30 +11,37 @@
 <div class="container">
     <h2 class="mt-3">List of complaint</h2>
 
-    <div class="card m-2">
-        <div class="card-body">
-            Complaint Title #1
-
-
-        </div>
-    </div>
-    <div class="card m-2">
-        <div class="card-body">
-            Complaint Title #2
-        </div>
-    </div>
-    <div class="card m-2">
-    <div class="row">
-        <div class="col">
+    <a href="{{route('complaint.show', 99) }}" class="text-decoration-none text-reset">
+        <div class="card mb-3">
             <div class="card-body">
-                Complaint Title #3
+              <p>Complaint #1</p>
+              <div class="d-flex justify-content-end">
+                <a href="{{ route('complaint.edit', 99) }}" class="btn btn-primary me-2">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="{{ route('complaint.destroy', 99) }}" onclick="alert('Are you sure you want to delete?')" class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                </a>
+              </div>
             </div>
         </div>
-        <div class="col">
-            <a href="#" class="btn"><i class ="fa fa-camera"></i></a>
+    </a>
+
+    <a href="{{route('complaint.show', 99) }}" class="text-decoration-none text-reset">
+        <div class="card mb-3">
+            <div class="card-body">
+              <p>Complaint #2</p>
+              <div class="d-flex justify-content-end">
+                <a href="{{ route('complaint.edit', 99) }}" class="btn btn-primary me-2">
+                    <i class="bi bi-pencil-square"></i>
+                </a>
+                <a href="{{ route('complaint.destroy', 99) }}" onclick="alert('Are you sure you want to delete?')" class="btn btn-danger">
+                    <i class="bi bi-trash"></i>
+                </a>
+              </div>
+            </div>
         </div>
-    </div>
-    </div>
+    </a>
 
 
     <a class="btn btn-danger mt-3" href="{{ route('complaint.create') }}">ADD COMPLAINT</a>

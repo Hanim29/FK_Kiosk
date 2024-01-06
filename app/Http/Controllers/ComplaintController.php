@@ -28,7 +28,8 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Jangan sentuh lagi
+        dd($request);
     }
 
     /**
@@ -36,7 +37,7 @@ class ComplaintController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('ManageComplaint.detail');
     }
 
     /**
@@ -44,7 +45,7 @@ class ComplaintController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('ManageComplaint.edit');
     }
 
     /**
@@ -52,7 +53,7 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Jangan sentuh lagi
     }
 
     /**
@@ -60,6 +61,6 @@ class ComplaintController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Jangan sentuh lagi
     }
 }

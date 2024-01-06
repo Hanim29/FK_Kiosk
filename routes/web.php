@@ -32,11 +32,11 @@ Route::get('/preview/student', function () {
 Route::prefix('/complaint')->name('complaint.')->controller(ComplaintController::class)->group(function () {
     Route::get('/', 'index')->name('index');
     Route::get('/add', 'create')->name('create');
-    Route::get('/store', 'store')->name('store');
+    Route::post('/store', 'store')->name('store');
     Route::get('/show/{id}', 'show')->name('show');
     Route::get('/edit/{id}', 'edit')->name('edit');
-    Route::get('/update/{id}', 'update')->name('update');
-    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    Route::put('/update/{id}', 'update')->name('update');
+    Route::delete('/destroy/{id}', 'destroy')->name('destroy');
 });
 
 
