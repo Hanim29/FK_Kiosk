@@ -12,8 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->string('salesID', 20)->primary(); //primary key
-            //$table->string('appID', 20);
+
+            $table->bigIncrements('salesID'); //primary key
+            $table->bigInteger('appID')->unsigned();
+            $table->string('userID', 20);
+            $table->date('saleDate');
+            $table->string('kioskNum', 20);
+            $table->double('totalSales'); 
+            $table->string('comment', 20);
+
             // continue add your columns here
 
         //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');

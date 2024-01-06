@@ -7,8 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Application extends Model
 {
-    public $timestamps = false;
+
+    use HasFactory;
+    protected $primaryKey = 'appID';    
     protected $table = 'applications';
-    protected $primaryKey = 'appID';
+    public $timestamps = false;
     protected $fillable = ['vendorSelect', 'dateRentFrom', 'dateRentTo', 'bizName', 'ssmNo', 'bizType', 'appStatus'];
+
 }

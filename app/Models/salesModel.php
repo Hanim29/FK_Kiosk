@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class salesModel extends Model
 {
     use HasFactory;
+    protected $table = 'sales';
+    protected $fillable = [ 'appID', 
+                            'userID', 
+                            'saleDate', 
+                            'kioskNum', 
+                            'totalSales', 
+                            'comment'];
+    public $timestamps = false;
+    protected $primaryKey = "salesID";
+
 }
