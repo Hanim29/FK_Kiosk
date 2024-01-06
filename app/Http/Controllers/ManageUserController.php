@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class ManageUserController extends Controller
 {
+
     public function studentRegister()
     {
         return view('ManageUserAccount.KioskParticipant.StudentRegistrationInterface');
@@ -27,6 +27,26 @@ class ManageUserController extends Controller
         return view('ManageUserAccount.KioskParticipant.ParticipantTypeInterface');
     }
 
+
+    public function editProfileK()
+    {
+        return view('ManageUserAccount.KioskParticipant.ManageUserInterface');
+    }
+
+    public function editProfileT()
+    {
+        return view('ManageUserAccount.FKTechnicalTeam.ManageUserInterface');
+    }
+
+    public function editProfileB()
+    {
+        return view('ManageUserAccount.FKBursary.ManageUserInterface');
+    }
+
+    public function editProfileP()
+    {
+        return view('ManageUserAccount.PupukAdmin.ManageUserInterface');
+    }
 
 
 }

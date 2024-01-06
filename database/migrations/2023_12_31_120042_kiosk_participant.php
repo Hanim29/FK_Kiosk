@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kiosk_participants', function (Blueprint $table) {
+          
             $table->bigIncrements("participant_ID");
             $table->bigInteger('appID')->unsigned();
+
             $table->unsignedBigInteger('user_ID');
 
             $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');

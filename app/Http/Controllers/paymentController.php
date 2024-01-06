@@ -25,10 +25,12 @@ class paymentController extends Controller
                     ->first()
                     ->appID;
                 $userApplication = Application::where('appID', $userAppID)->first();
+
                 $latestPayment = Payment::where("appID", $userAppID)
                                     ->orderBy('paydate', 'desc')
                                     ->first();
                 return view("ManageFKKioskPayment.PaymentInterface", ["userApplication" => $userApplication, "payment"=>$latestPayment]);
+
             }
 
             if($user_account_type == "admin" || $user_account_type == "fk_bursary") { 
@@ -61,7 +63,9 @@ class paymentController extends Controller
                 
                     $paymentsRecords[] = $result;
                 }
+
                 return view("ManageFKKioskPayment.PaymentInterface", ['payments' => $paymentsRecords]);
+
             }
         }
 
@@ -76,7 +80,9 @@ class paymentController extends Controller
                     ->first()
                     ->appID;
         $userApplication = Application::where('appID', $userAppID)->first();
+
         return view("ManageFKKioskPayment.AddPayInterface", ["userApplication" => $userApplication]);
+
 
     }
 
@@ -106,7 +112,9 @@ class paymentController extends Controller
     public function ViewPayment(int $paymentID) {
         $payment = Payment::where('paymentID', $paymentID)->first();
         if($payment) {
+
             return view("ManageFKKioskPayment.ViewPayment", ["paymentRecord" => $payment]);
+
 
         }
         return back();
@@ -117,7 +125,9 @@ class paymentController extends Controller
         if(Auth::user()->account_type == "student" || Auth::user()->account_type == "vendor") {
             $participantPayment = Payment::where("appID", $appID)->latest("payDate")->first();
             if($participantPayment) {
+
                 return view("ManageFKKioskPayment.UpdatePayInterface", ["paymentRecord" => $participantPayment]);
+
 
             }
             return redirect(route("payments.create"));

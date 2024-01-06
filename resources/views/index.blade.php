@@ -6,7 +6,9 @@
   <title>FK KIOSK</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-14FJDO89+9QjFwVhCK0SGQ4gxq6SN6sI2cN6qlMB5+yhkU9ZFhI5WAqBUtVmyrZ3qU5Ia3dC6egxD8tStK1OOQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"><style>
+
     .navbar {
       background-color: #dc3545; /* Red navigation bar background */
     }
@@ -53,10 +55,12 @@
             <a class="nav-link{{ request()->routeIs('payments.*') ? ' active' : '' }}" href="{{ route('payments.index') }}">PAYMENTS</a>
           </li>        
           <li class="nav-item">
+
             <a class="nav-link{{ request()->routeIs('sales.*') ? ' active' : '' }}" href="{{ route('sales.index') }}">SALES REPORT</a>
           </li>
           <li class="nav-item">
             <a class="nav-link{{ request()->routeIs('complaint.*') ? ' active' : '' }}" href="#">COMPLAINT</a>
+
           </li>
           @auth 
             <li class="nav-item">
@@ -65,7 +69,9 @@
           @endauth
           @guest
           <li class="nav-item">
+
             <a class="nav-link{{ request()->routeIs('dashboard') ? ' active' : '' }}" href="{{ route('login') }}">ACCOUNT</a>
+
           </li>
           @endguest 
         </ul>
