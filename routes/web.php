@@ -28,8 +28,8 @@ Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])-
 Route::get('/register/staff', [ManageUserController::class, 'staffRegister'])->name('register.staff');
 Route::get('/register/staff', [ManageUserController::class, 'participantType'])->name('register.type');
 
-Route::get('/preview/student', function () {
-    return view('ManageUserAccount/KioskParticipant/ParticipantTypeInterface');
+Route::get('/preview', function () {
+    return view('ManageUserAccount/Admin/AdminManageUserInterface');
 });
 
 Route::get('/complaint',function(){
@@ -92,6 +92,17 @@ Route::middleware([
     Route::get('/dashboard/pupuk', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Pupuk');
     Route::get('/dashboard/technical', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Technical');
     Route::get('/dashboard/bursary', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Bursary');
+
+});
+
+
+Route::controller(ManageUserController::class)->group(function(){
+    Route::get('/user_list', 'userList')->name('user_list');
+    Route::delete('delete_user/{id}', 'deleteUser')->name('delete_user');
+    Route::get('edit_user/{id}', 'editUser')->name('edit_user');//route to link to edit page
+    Route::put('update_user/{id}', 'updateUser')->name('update_user');//route to update data
+    Route::post('create_user', 'createUser')->name('create_user');//route to update data
+    Route::get('/add_user','addUser')->name('add_user');//route to adduser page
 });
 
 // route for manage payment

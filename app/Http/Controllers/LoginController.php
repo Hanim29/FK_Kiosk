@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use app\Models\User;
 
 class LoginController extends Controller{
 //FROM LOGIN PAGE TO THIS DASHBOARD PAGE
@@ -17,7 +18,7 @@ class LoginController extends Controller{
     {
         $account_type = Auth::user()->account_type;
 
-        if ($account_type == 'Admin') {
+        if ($account_type == 'admin') {
             return view('AdminDashboard');
         }
 
@@ -41,6 +42,12 @@ class LoginController extends Controller{
             return view('BursaryDashboard');
         }
     }
+
+    public function show(User $user)
+    {
+        return view('ManageAccount.Admin.AdminEditUserInterface', compact('user'));
+    }
+
 
     public function create() //create =method 
     {
