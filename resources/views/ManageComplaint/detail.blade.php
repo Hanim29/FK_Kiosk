@@ -11,43 +11,43 @@
             <!-- Title of Complaints -->
             <div class="mb-3">
               <label for="title" class="form-label">Title of Complaints:</label>
-              <input type="text" class="form-control" id="title" value="Sample Complaint Title" readonly>
+              <input type="text" class="form-control" id="title" value="{{$complaint->title}}" readonly>
             </div>
 
-            <!-- Name -->
+            {{-- <!-- Name -->
             <div class="mb-3">
               <label for="name" class="form-label">Name:</label>
               <input type="text" class="form-control" id="name" value="John Doe" readonly>
-            </div>
+            </div> --}}
 
             <!-- Phone Number -->
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <label for="phone_number" class="form-label">Phone Number:</label>
               <input type="text" class="form-control" id="phone_number" value="123-456-7890" readonly>
-            </div>
+            </div> --}}
 
             <!-- Email -->
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <label for="email" class="form-label">Email:</label>
               <input type="text" class="form-control" id="email" value="john.doe@example.com" readonly>
-            </div>
+            </div> --}}
 
             <!-- Date -->
             <div class="mb-3">
               <label for="date" class="form-label">Date:</label>
-              <input type="text" class="form-control" id="date" value="2024-01-06" readonly>
+              <input type="text" class="form-control" id="date" value="{{$complaint->created_at}}" readonly>
             </div>
 
             <!-- Kiosk Number -->
             <div class="mb-3">
               <label for="kiosk_number" class="form-label">Kiosk Number:</label>
-              <input type="text" class="form-control" id="kiosk_number" value="3" readonly>
+              <input type="text" class="form-control" id="kiosk_number" value="{{$complaint->kiosk_number}}" readonly>
             </div>
 
             <!-- Type of Maintenance -->
             <div class="mb-3">
               <label for="maintenance_type" class="form-label">Type of Maintenance:</label>
-              <input type="text" class="form-control" id="maintenance_type" value="Report" readonly>
+              <input type="text" class="form-control" id="maintenance_type" value="{{$complaint->maintainance_type}}" readonly>
             </div>
 
           </div>
@@ -56,7 +56,7 @@
             <!-- Complaint Descriptions Textarea -->
             <div class="mb-3">
               <label for="complaint_description" class="form-label">Complaint Descriptions:</label>
-              <textarea class="form-control" id="complaint_description" rows="5" readonly>Sample complaint descriptions go here.</textarea>
+              <textarea class="form-control" id="complaint_description" rows="5" readonly>{{$complaint->description}}</textarea>
             </div>
 
             <!-- Photo Display (Add logic to display uploaded photos) -->

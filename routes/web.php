@@ -36,7 +36,7 @@ Route::prefix('/complaint')->name('complaint.')->controller(ComplaintController:
     Route::get('/show/{id}', 'show')->name('show');
     Route::get('/edit/{id}', 'edit')->name('edit');
     Route::put('/update/{id}', 'update')->name('update');
-    Route::delete('/destroy/{id}', 'destroy')->name('destroy');
+    Route::get('/destroy/{id}', 'destroy')->name('destroy');
 });
 
 

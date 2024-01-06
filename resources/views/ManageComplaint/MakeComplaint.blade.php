@@ -29,50 +29,40 @@
             <div class="col">
 
               <div class="mb-3">
-                <input type="title" class="form-control" id="title" placeholder="TITLE OF COMPLAINTS" style="width:100%">
+                <input type="title" class="form-control" name="title" id="title" placeholder="TITLE OF COMPLAINTS" style="width:100%">
+              </div>
+{{--
+              <div class="mb-3">
+                <input type="name" class="form-control" name="name" id="name" placeholder="NAME" style="width:100%">
               </div>
 
               <div class="mb-3">
-                <input type="name" class="form-control" id="name" placeholder="NAME" style="width:100%">
-              </div>
+                <input type="phone_number" class="form-control" name="phone_number" placeholder="PHONE NUMBER" style="width:100%">
+              </div> --}}
+
+              {{-- <div class="mb-3">
+                <input type="email" class="form-control" name="email" id="email" placeholder="EMAIL" style="width100%">
+              </div> --}}
 
               <div class="mb-3">
-                <input type="phone_number" class="form-control" id="phone_number" placeholder="PHONE NUMBER" style="width:100%">
+                <input type="date" class="form-control" name="date" id="date" placeholder="DATE" style="width:100%">
               </div>
 
-              <div class="mb-3">
-                <input type="email" class="form-control" id="email" placeholder="EMAIL" style="width100%">
-              </div>
+              <select name="kiosk_number" class="form-select mt-3">
+                <option selected>KIOSK NUMBER</option>
+                @foreach(range(1, 5) as $y)
+                    <option value="{{$y}}">{{$y}}</option>
+                @endforeach
+            </select>
 
-              <div class="mb-3">
-                <input type="date" class="form-control" id="date" placeholder="DATE" style="width:100%">
-              </div>
-
-              <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                    KIOSK NUMBER
-                  </button>
-                  <ul class="dropdown-menu" style="width: 100%;">
-                    <li><a class="dropdown-item" href="#">1</a></li>
-                    <li><a class="dropdown-item" href="#">2</a></li>
-                    <li><a class="dropdown-item" href="#">3</a></li>
-                    <li><a class="dropdown-item" href="#">4</a></li>
-                    <li><a class="dropdown-item" href="#">5</a></li>
-                  </ul>
-                </div>
-
-                <div class="dropdown" style="padding-top: 1%; margin-bottom:1%">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
-                    TYPE OF MAINTENANCE
-                  </button>
-                  <ul class="dropdown-menu" style="width: 100%;">
-                    <li><a class="dropdown-item" href="#">Kiosk Application</a></li>
-                    <li><a class="dropdown-item" href="#">Kiosk Payment</a></li>
-                    <li><a class="dropdown-item" href="#">Report</a></li>
-                    <li><a class="dropdown-item" href="#">Personal Account</a></li>
-                    <li><a class="dropdown-item" href="#">Others</a></li>
-                  </ul>
-                </div>
+            <select name="type_maintenance" class="form-select mt-3" aria-label="Default select example">
+                <option selected>TYPE OF MAINTENANCE</option>
+                <option value="{{ App\Models\Complaint::TYPE_KIOSK_APPLICATION }}">{{ App\Models\Complaint::TYPE_KIOSK_APPLICATION}}</option>
+                <option value="{{ App\Models\Complaint::TYPE_KIOSK_PAYMENT }}">{{ App\Models\Complaint::TYPE_KIOSK_PAYMENT}}</option>
+                <option value="{{ App\Models\Complaint::TYPE_REPORT }}">{{ App\Models\Complaint::TYPE_REPORT}}</option>
+                <option value="{{ App\Models\Complaint::TYPE_PERSONAL_ACCOUNT }}">{{ App\Models\Complaint::TYPE_PERSONAL_ACCOUNT}}</option>
+                <option value="{{ App\Models\Complaint::TYPE_OTHERS }}">{{ App\Models\Complaint::TYPE_OTHERS}}</option>
+            </select>
 
                 <br>
 
@@ -91,15 +81,11 @@
             <div class="col">
 
                 <div class="mb-3">
-                    <textarea class="form-control" placeholder="COMPLAINT DESCRIPTIONS" id="exampleFormControlTextarea1" rows="3" id="complaint_description" style="width: 100%; height: 325px;"></textarea>
+                    <textarea class="form-control" name="description" placeholder="COMPLAINT DESCRIPTIONS" id="exampleFormControlTextarea1" rows="3" id="complaint_description" style="width: 100%; height: 325px;"></textarea>
                 </div>
 
               <div class="container text-center">
                   <div class="row">
-                    <div class="col">
-                        {{-- Replace <99> with code later --}}
-                      <a href="{{ route('complaint.show', 99) }}"> <button type="button" class="btn btn-danger">DETAILS</button> </a>
-                    </div>
 
                     <div class="col">
                       <button type="submit" class="btn btn-danger">SUBMIT</button>

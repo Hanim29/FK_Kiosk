@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Complaint;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ComplaintController extends Controller
@@ -12,7 +13,10 @@ class ComplaintController extends Controller
      */
     public function index()
     {
-        return view('ManageComplaint.complaintList');
+        $currentKiosk = User::find(1);
+        $complaints = $currentKiosk->complaints;
+
+        return view('ManageComplaint.complaintList', compact('complaints'));
     }
 
     /**
@@ -29,7 +33,19 @@ class ComplaintController extends Controller
     public function store(Request $request)
     {
         // Jangan sentuh lagi
-        dd($request);
+        // dd($request->toArray());
+        $complaint = new Complaint();
+        $complaint->title = $request->title;
+        // $complaint->date = $request->date;
+        $complaint->kiosk_number = $request->kiosk_number;
+        $complaint->maintainance_type = $request->type_maintenance;
+        $complaint->description = $request->description;
+        $complaint->status = Complaint::STATUS_PENDING;
+        $complaint->image_path = "gambar";
+        $complaint->user_id = 1; // nnti tukar
+        $complaint->save();
+
+        return redirect(route('complaint.index'));
     }
 
     /**
@@ -37,7 +53,9 @@ class ComplaintController extends Controller
      */
     public function show(string $id)
     {
-        return view('ManageComplaint.detail');
+        $complaint = Complaint::find($id);
+        return view('ManageComplaint.detail', compact('complaint'));
+
     }
 
     /**
@@ -45,7 +63,8 @@ class ComplaintController extends Controller
      */
     public function edit(string $id)
     {
-        return view('ManageComplaint.edit');
+        $complaint = Complaint::find($id);
+        return view('ManageComplaint.edit',compact('complaint'));
     }
 
     /**
@@ -53,7 +72,16 @@ class ComplaintController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        // Jangan sentuh lagi
+        // dd($request->toArray());
+        $complaint = Complaint::find($id);
+        $complaint->title = $request->title;
+        // $complaint->date = $request->date;
+        $complaint->kiosk_number = $request->kiosk_number;
+        $complaint->maintainance_type = $request->type_maintenance;
+        $complaint->description = $request->description;
+        $complaint->image_path = "gambar";
+        $complaint->save();
+        return redirect(route('complaint.index'));
     }
 
     /**
@@ -61,6 +89,9 @@ class ComplaintController extends Controller
      */
     public function destroy(string $id)
     {
-        // Jangan sentuh lagi
+
+        $complaint = Complaint::find($id);
+        $complaint->delete();
+        return redirect(route('complaint.index'));
     }
 }
