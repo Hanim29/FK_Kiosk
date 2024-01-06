@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('paymentID'); // Primary Key
-            $table->string('appID', 20);
+
+            $table->bigInteger('appID')->unsigned();
+
             $table->string('appNum',20);
             $table->string('phoneNum',20);
             $table->string('email',20);

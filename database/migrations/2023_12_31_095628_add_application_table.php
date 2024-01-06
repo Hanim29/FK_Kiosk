@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applications', function (Blueprint $table) {
-            $table->string('appID', 20)->primary(); //primary key
+
+            $table->bigIncrements('appID');
+            
+
+          
             $table->integer("vendorSelect");
             $table->date("dateRentFrom");
             $table->date("dateRentTo");
@@ -21,6 +25,7 @@ return new class extends Migration
             $table->string("bizType", 20);
             $table->string("appStatus", 20);
             
+
 
         });
     }

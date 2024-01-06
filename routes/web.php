@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\paymentController;
-use App\Http\Controllers\ApplicationController;
+use App\Http\Controllers\salesController;
 use App\Models\Application;
 
-Route::get('/', [IndexController::class, 'index']);
+
+Route::get('/', [IndexController::class, 'index'])->name("home");
 
 Route::get('/register/student', [ManageUserController::class, 'studentRegister'])->name('register.student');
 Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])->name('register.vendor');
@@ -118,10 +119,39 @@ Route::middleware('auth')->group(function () {
 });
 
 
+// route for manage sale report
+Route::middleware('auth')->group(function () {
+    // show the sale report interface
+    Route::get('/sales', [salesController::class, 'index'])->name("sales.index");
+    // show the add sale report form
+    Route::view('/sales/add', 'ManageSalesReport.AddSalesInterface')->name("sales.add.show");
+    // perform the add sale report
+    Route::post('/sales/add', [salesController::class, 'AddSales'])->name("sales.add.perform");
+    // show the update sale report
+    Route::view('/sales/update', 'ManageSalesReport.UpdateSalesInterface')->name("sales.update.show");
+    //update the sale report
+    Route::post('/sales/update', [salesController::class, 'UpdateSales'])->name("sales.update.perform");
+    // view sales report
+    Route::view('/sales/view', 'ManageSalesReport.ViewSalesInterface')->name("sales.view");
+    // fetch sales date
+    Route::get('/sales/view/get', [salesController::class, 'ViewSales'])->name("sales.view.get");
+    // view report for delete
+    Route::view('/sales/delete', 'ManageSalesReport.ViewSalesInterface')->name('sales.delete'); 
+    // delete the report   
+    Route::delete('/sales/delete', [salesController::class, 'DeleteSales'])->name('sales.delete.perform');    
+    // view report for add comment
+    Route::view('/sales/comment', 'ManageSalesReport.ViewSalesInterface')->name("sales.comment");
+    // add the comment
+    Route::post('/sales/comment', [salesController::class, 'AddComment'])->name("sales.comment.perform");
+
+});
+
+
 
 Route::get('/editProfile/participant', [App\Http\Controllers\ManageUserController::class, 'editProfileK'])->name('edit.participant');
 Route::get('/editProfile/pupuk', [App\Http\Controllers\ManageUserController::class, 'editProfileP'])->name('edit.pupuk');
 Route::get('/editProfile/technical', [App\Http\Controllers\ManageUserController::class, 'editProfileT'])->name('edit.technical');
 Route::get('/editProfile/bursary', [App\Http\Controllers\ManageUserController::class, 'editProfileB'])->name('edit.bursary');
+
 
 
