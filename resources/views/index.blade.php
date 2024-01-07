@@ -49,7 +49,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link{{ request()->routeIs('home') ? ' active' : '' }}" aria-current="page" href="#">KIOSK APPLICATION</a>
+            <a class="nav-link{{ request()->routeIs('applications.') ? ' active' : '' }}" href="{{ route('applications.index') }}">KIOSK APPLICATION</a>
           </li>
           <li class="nav-item">
             <a class="nav-link{{ request()->routeIs('payments.*') ? ' active' : '' }}" href="{{ route('payments.index') }}">PAYMENTS</a>

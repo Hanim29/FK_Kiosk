@@ -12,18 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applications', function (Blueprint $table) {
-
-            $table->bigIncrements('appID');
-            
-
-          
-            $table->integer("vendorSelect");
-            $table->date("dateRentFrom");
-            $table->date("dateRentTo");
-            $table->string("bizName", 20);
-            $table->string("ssmNo", 20);
-            $table->string("bizType", 20);
-            $table->string("appStatus", 20);
+        
+            $table->increments('appID');
+            $table->integer('vendorSelect');
+            $table->date('dateRentFrom');
+            $table->date('dateRentTo');
+            $table->string('bizName');
+            $table->string('ssmNo');
+            $table->string('bizType');
+            $table->string('appStatus')->default("Applied");
             
 
 

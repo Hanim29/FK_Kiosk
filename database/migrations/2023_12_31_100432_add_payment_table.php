@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('payMethod' ,20);
             
             // Foreign key constraints
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+            //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
         });
     }
 

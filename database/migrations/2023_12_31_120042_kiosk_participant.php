@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('user_ID');
 
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+            //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
             $table->foreign('user_ID')->references('id')->on('users')->onDelete('cascade');
 
         });

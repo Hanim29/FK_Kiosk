@@ -23,7 +23,7 @@ return new class extends Migration
 
             // continue add your columns here
 
-            $table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
+        //$table->foreign('appID')->references('appID')->on('applications')->onDelete('cascade');
         });
     }
 

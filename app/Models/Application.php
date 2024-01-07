@@ -10,9 +10,6 @@ class Application extends Model
 
     use HasFactory;
     protected $primaryKey = 'appID';    
-
-    
-
     protected $table = 'applications';
     public $timestamps = false;
     protected $fillable = ['vendorSelect', 'dateRentFrom', 'dateRentTo', 'bizName', 'ssmNo', 'bizType', 'appStatus'];
