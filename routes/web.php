@@ -18,15 +18,11 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\salesController;
+use App\Http\Controllers\ApplicationController;
 use App\Models\Application;
 
 
 Route::get('/', [IndexController::class, 'index'])->name("home");
-
-Route::get('/register/student', [ManageUserController::class, 'studentRegister'])->name('register.student');
-Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])->name('register.vendor');
-Route::get('/register/staff', [ManageUserController::class, 'staffRegister'])->name('register.staff');
-Route::get('/register/staff', [ManageUserController::class, 'participantType'])->name('register.type');
 
 Route::get('/preview', function () {
     return view('ManageUserAccount/Admin/AdminManageUserInterface');
@@ -80,6 +76,11 @@ Route::get('/preview/update', function () {
 //     })->name('dashboard');
 // });
 
+
+Route::get('/register/student', [ManageUserController::class, 'studentRegister'])->name('register.student');//route to student registration
+Route::get('/register/vendor', [ManageUserController::class, 'vendorRegister'])->name('register.vendor');//route to vendor registration
+Route::get('/register/staff', [ManageUserController::class, 'participantType'])->name('register.type');//route to register type
+
 //route for login
 Route::middleware([
     'auth:sanctum',
@@ -87,18 +88,18 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard');
-    Route::get('/dashboard/admin', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Admin');
-    Route::get('/dashboard/participant', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Participant');
-    Route::get('/dashboard/pupuk', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Pupuk');
-    Route::get('/dashboard/technical', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Technical');
-    Route::get('/dashboard/bursary', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Bursary');
+    Route::get('/dashboard/admin', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Admin');//route to admin dashboard
+    Route::get('/dashboard/participant', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Participant');//route to kiosk participant dashboard
+    Route::get('/dashboard/pupuk', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Pupuk');//route to pupuk admin dashboard
+    Route::get('/dashboard/technical', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Technical');//route to fk technical team dashboard
+    Route::get('/dashboard/bursary', [App\Http\Controllers\LoginController::class, 'loadDashboard'])->name('dashboard.Bursary');//route to Fk Bursary dashboard
 
 });
 
 
 Route::controller(ManageUserController::class)->group(function(){
-    Route::get('/user_list', 'userList')->name('user_list');
-    Route::delete('delete_user/{id}', 'deleteUser')->name('delete_user');
+    Route::get('/user_list', 'userList')->name('user_list');//route to user management
+    Route::delete('delete_user/{id}', 'deleteUser')->name('delete_user');//route to delete data
     Route::get('edit_user/{id}', 'editUser')->name('edit_user');//route to link to edit page
     Route::put('update_user/{id}', 'updateUser')->name('update_user');//route to update data
     Route::post('create_user', 'createUser')->name('create_user');//route to update data

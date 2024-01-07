@@ -62,18 +62,9 @@
             <a class="nav-link{{ request()->routeIs('complaint.*') ? ' active' : '' }}" href="#">COMPLAINT</a>
 
           </li>
-          @auth 
             <li class="nav-item">
-              <a class="nav-link{{ request()->routeIs('dashboard') ? ' active' : '' }}" href="{{ route('dashboard') }}">ACCOUNT</a>
+              <a class="nav-link" href="{{ route('login') }}">ACCOUNT</a>
             </li>
-          @endauth
-          @guest
-          <li class="nav-item">
-
-            <a class="nav-link{{ request()->routeIs('dashboard') ? ' active' : '' }}" href="{{ route('login') }}">ACCOUNT</a>
-
-          </li>
-          @endguest 
         </ul>
       </div>
     </div>

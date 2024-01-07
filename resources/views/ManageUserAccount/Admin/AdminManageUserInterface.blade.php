@@ -9,10 +9,12 @@
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
             <div class="block mb-8">
 
+            <!-- add new user link-->
             <div>
             <a href="{{ route('add_user') }}" style="color: green;">Add User</a>
             </div>
 
+            <!-- users table -->
             </div>
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -41,6 +43,7 @@
                                     </th>
                                 </tr>
                                 </thead>
+                                <!-- call user data from database -->
                                 <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach ($users as $user)
                                     <tr>
@@ -64,6 +67,7 @@
                                         {{ $user->account_type }}
                                         </td>
 
+                                        <!-- edit and delete function -->
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                             <a href="{{ route('edit_user', $user->id) }}">Edit</a>
                                             <form action="{{ route('delete_user', $user->id) }}" method="POST">
