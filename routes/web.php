@@ -18,6 +18,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\salesController;
+use App\Http\Controllers\ApplicationController;
 use App\Models\Application;
 
 
@@ -61,13 +62,18 @@ Route::get('/preview', function () {
 Route::get('/ManageKioskApplication',[ApplicationController::class, 'index'])->name('applications');
 Route::get('/ManageKioskApplication/create',[ApplicationController::class, 'create'])->name('applications.create');
 Route::post('/ManageKioskApplication/store',[ApplicationController::class, 'store'])->name('applications.store');
+Route::get('/ManageKioskApplication/{appID}/view', [ApplicationController::class, 'show'])->name('applications.show');
 Route::get('/ManageKioskApplication/{appID}/edit', [ApplicationController::class, 'edit'])->name('applications.edit');
 Route::put('/ManageKioskApplication/{appID}/update', [ApplicationController::class, 'update'])->name('applications.update');
 Route::delete('/applications/{appID}/delete',[ApplicationController::class, 'delete'])->name('applications.delete');
+Route::get('/ManageKioskApplication/adminlistapp', [ApplicationController::class, 'adminlistapp'])->name('applications.index');
+Route::get('/ManageKioskApplication/{appID}/approve', [ApplicationController::class, 'approve'])->name('applications.approve');
+Route::put('/ManageKioskApplication/{appID}/adminupdate', [ApplicationController::class, 'adminupdate'])->name('applications.adminupdate');
 
-//Route::get('/preview/update', function () {
-  //  return view('ManageKioskApplication/updateappinterface');
-//});
+
+Route::get('/preview/admin', function () {
+   return view('/ManageKioskApplication/adminlistapp');
+});
 
 
 // Route::middleware([

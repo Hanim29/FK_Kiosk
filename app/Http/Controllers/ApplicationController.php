@@ -13,10 +13,10 @@ class ApplicationController extends Controller
     //display list of application
     public function index()
     {
-        $application = Application::get(); //select * from application database
+        $applications = Application::all(); //select * from application database
         return view(
             'ManageKioskApplication.applicationinterface',
-            compact('application')
+            compact('applications')
 
 
         );
@@ -34,7 +34,7 @@ class ApplicationController extends Controller
     function store(Request $request)
     {
        
-        $validator = Validator::make($request->all(), [
+        $request-> validate([
             'vendorSelect' => 'required',
             'dateRentFrom' => 'required',
             'dateRentTo' =>'required',
@@ -43,11 +43,13 @@ class ApplicationController extends Controller
             'bizType' => 'required',
             'appStatus' => '',
         ]);
+
+        Application::create($request->all()); 
         //dd($request);
         //insert data to db
-        Application::create( 
-           $request -> all()
-        );
+        //Application::create( 
+        //   $request -> validate()
+        //);
 
         // Redirect to the desired page
         return redirect()->route('applications')->with('success', 'Application added successfully');
@@ -56,18 +58,18 @@ class ApplicationController extends Controller
     /**
      * Display the specified resource.
      */
-   // public function show($appID)
-    //{
-       // $application = Application::findOrFail($appID);
+    public function show($appID)
+    {
+     $applications = Application::findOrFail($appID);
 
-    //return view('ManageKioskApplication.show', compact('application'));
-    //}
+    return view('ManageKioskApplication.viewappinterface', compact('applications'));
+    }
 
     //edit application
     public function edit($appID)
 {
     $applications = Application::find($appID);
-    return view("ManageKioskApplication.applicationinterface", compact('applications'));
+    return view("ManageKioskApplication.updateappinterface", compact('applications'));
 }
 
 public function update(Request $request, $appID)
@@ -79,25 +81,25 @@ public function update(Request $request, $appID)
         'dateRentTo' => 'required|date',
         'bizName' => 'required|string|max:255',
         'ssmNo' => 'required|string|max:255',
-        'bizType' => 'required|in:Food,Drinks,Flowers',
+        'bizType' => 'required|in:food,drinks,flowers', // Update to lowercase
     ]);
 
     // Find the application by ID
-    $applications = Application::findOrFail($appID);
+    $application = Application::findOrFail($appID);
 
-    // Update the user's attributes
-    $applications->vendorSelect = $validatedData['vendorSelect'];
-    $applications->dateRentFrom = $validatedData['dateRentFrom'];
-    $applications->dateRentTo = $validatedData['dateRentTo'];
-    $applications->bizName = $validatedData['bizName'];
-    $applications->ssmNo = $validatedData['ssmNo'];
-    $applications->bizType = $validatedData['bizType'];
+    // Update the application's attributes
+    $application->vendorSelect = $validatedData['vendorSelect'];
+    $application->dateRentFrom = $validatedData['dateRentFrom'];
+    $application->dateRentTo = $validatedData['dateRentTo'];
+    $application->bizName = $validatedData['bizName'];
+    $application->ssmNo = $validatedData['ssmNo'];
+    $application->bizType = $validatedData['bizType'];
 
-    // Save the updated user
-    $applications->save();
+    // Save the updated application
+    $application->save();
 
     // Redirect the user to their updated profile or any other appropriate page
-    return redirect()->route('applications', $applications->appID)->with('success', 'Application updated successfully');
+    return redirect()->route('applications', $application->appID)->with('success', 'Application updated successfully');
 }
 
     /**
@@ -109,4 +111,51 @@ public function update(Request $request, $appID)
         $item->delete();
         return redirect()->route('applications')->with('applications', 'Application deleted successfully');
     }
+
+
+    
+    
+        public function adminlistapp()
+        {
+            $applications = Application::all(); //select * from application database
+            return view(
+                'ManageKioskApplication.adminlistapp',
+                compact('applications')
+            );
+        }
+ 
+    
+
+  //edit application
+  public function approve($appID)
+  {
+      $applications = Application::find($appID);
+      return view('ManageKioskApplication.adminapprovalapp', compact('applications'));
+  }
+  
+  public function adminupdate(Request $request, $appID)
+  {
+      // Validate the form data
+      $validatedData = $request->validate([
+          'vendorSelect' => 'required|int',
+          'dateRentFrom' => 'required|date',
+          'dateRentTo' => 'required|date',
+          'bizName' => 'required|string|max:255',
+          'ssmNo' => 'required|string|max:255',
+          'bizType' => 'required|in:food,drinks,flowers',
+          'appStatus' => 'required|in:accepted,rejected',
+      ]);
+  
+      // Find the application by ID
+      $applications = Application::findOrFail($appID);
+  
+      // Update the application's attributes
+      $applications->appStatus = $validatedData['appStatus'];
+      $applications->save();
+    
+  
+      // Redirect the user to their updated profile or any other appropriate page
+      return redirect()->route('applications.index')->with('success', 'Application updated successfully');
+  }
+  
 }

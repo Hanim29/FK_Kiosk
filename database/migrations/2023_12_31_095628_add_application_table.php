@@ -1,5 +1,3 @@
-<?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,7 +10,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('applications', function (Blueprint $table) {
-        
             $table->increments('appID');
             $table->integer('vendorSelect');
             $table->date('dateRentFrom');
@@ -20,10 +17,7 @@ return new class extends Migration
             $table->string('bizName');
             $table->string('ssmNo');
             $table->string('bizType');
-            $table->string('appStatus')->default("Applied");
-            
-
-
+            $table->string('appStatus')->default("Applied"); // Set the default value here
         });
     }
 
