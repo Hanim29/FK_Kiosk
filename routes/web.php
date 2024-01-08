@@ -19,7 +19,6 @@ use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\paymentController;
 use App\Http\Controllers\salesController;
 use App\Http\Controllers\ApplicationController;
-use App\Models\Application;
 
 
 Route::get('/', [IndexController::class, 'index'])->name("home");
